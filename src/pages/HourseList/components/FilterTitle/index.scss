@@ -1,0 +1,14 @@
+.root {
+  text-align: center;
+  background-color: #fff;
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+  .dropdown {
+    display: inline-block;
+    font-size: 17px;
+    background-color: #fff;
+  }
+  .selected {
+    color: #21b97a;
+  }
+}
