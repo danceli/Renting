@@ -6,7 +6,17 @@
     background-color: #f5f5f5;
   }
   .noPosi {
-    position: relative;
+    position: static;
     top: 0;
+  }
+
+  .houseItems {
+    padding: 0 15px;
+  }
+  .loading {
+    line-height: 120px;
+    height: 120px;
+    text-align: center;
+    background-color: #ccc;
   }
 }

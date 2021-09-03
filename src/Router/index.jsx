@@ -5,6 +5,7 @@ import News from '../pages/News';
 import Profile from '../pages/Profile';
 import HourseList from '../pages/HourseList';
 
+
 import { Route } from 'react-router-dom';
 import { tabConfig } from '../utils/common';
 

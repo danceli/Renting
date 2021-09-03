@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom'
 import './index.scss';
 import SearchHeader from '@/components/SearchHeader';
 const Swiper = ({swiperData, history, curCityInfo}) => {
-  console.log(curCityInfo)
   return (
     <div className="swiper">
       <Carousel

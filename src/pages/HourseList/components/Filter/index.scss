@@ -1,13 +1,26 @@
 
 .filter {
-  z-index: 100;
+  position: relative;
+  z-index: 3;
+  height: 40px;
+  // background-color: #fff;
 }
 .mask {
   position: fixed;
-  z-index: 0;
+  z-index: 2;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
+}
+.filter-content {
+  width: 100%;
+  position: absolute;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.body-fixed {
+  overflow: hidden;
 }

@@ -12,7 +12,6 @@ const config = [
 class FilterTitle extends Component {
   render() {
     const { titleSelectedStatus, onTitleClick } = this.props;
-    console.log(titleSelectedStatus)
     return (
       <Flex align="center" className="root">
         {

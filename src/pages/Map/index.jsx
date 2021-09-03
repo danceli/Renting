@@ -1,6 +1,6 @@
-import React, { useEffect, Component } from 'react';
+import React, { Component } from 'react';
 import NavHeader from '@/components/NavHeader';
-import { getCurCity } from '@/utils/ext';
+import HouseItem from "@/components/HouseItem"
 import { Toast } from "antd-mobile";
 
 import './index.scss';
@@ -40,6 +40,7 @@ class Map extends Component {
         this.createOverLays(item, nextZoom, type)
       })
     } catch(e) {
+      console.log(e)
       Toast.hide();
     }
     
@@ -174,11 +175,11 @@ class Map extends Component {
     }
     
   }
-  setupMap = async () => {
+  setupMap = () => {
     //创建地图实例
     this.map = new window.BMapGL.Map("container");
     //获取当前地址信息
-    const { label, value } = await getCurCity();
+    const { label, value } = JSON.parse(localStorage.getItem("curCity"));
     //创建地址解析器
     const myGeo = new window.BMapGL.Geocoder();
     myGeo.getPoint(label, async (point) => {
@@ -192,6 +193,7 @@ class Map extends Component {
         this.map.enableScrollWheelZoom(true);
 
         //获取区域数据
+        console.log(point)
         this.renderOverLays(value)
         
       } else{
@@ -218,7 +220,7 @@ class Map extends Component {
     const { houseList, isShowList } = this.state;
     return (
       <div className="map">
-        <NavHeader>
+        <NavHeader className="navNoMargin">
           地图找房
         </NavHeader>
         <div id="container"></div>
@@ -229,26 +231,36 @@ class Map extends Component {
             <div className={styles.listTitle}>房屋列表</div>
             <a href="#" className={styles.more}>更多房源</a>
           </div>
+          {/* 房屋列表 */}
           <div className={styles.houseItems}>
             {
               houseList && houseList.map(item => (
-                <div className={styles.house} key={item.houseCode}>
-                  <div className={styles.imgWrap}>
-                    <img src={`http://localhost:8080${item.houseImg}`} className={styles.img} />
-                  </div>
-                  <div className={styles.content}>
-                    <h3 className={styles.title}>{item.title}</h3>
-                    <div className={styles.desc}>{ item.desc }</div>
-                    <div className={styles.tags}>
-                      {
-                        item.tags && item.tags.map((cItem,index) => (
-                          <span key={cItem} className={[styles.tag, styles[`tag${index + 1}`]].join(" ")}>{cItem}</span>
-                        ))
-                      }
-                    </div>
-                    <div className={styles.priceWrap}><span className={styles.price}>{item.price} </span>元/月</div>
-                  </div>
-                </div>
+                  <HouseItem
+                    key={item.houseCode}
+                    houseCode={item.houseCode}
+                    houseImg={item.houseImg}
+                    desc={item.desc}
+                    price={item.price}
+                    title={item.title}
+                    tags={item.tags}
+                  />
+                // <div className={styles.house} key={item.houseCode}>
+                //   <div className={styles.imgWrap}>
+                //     <img src={`http://localhost:8080${item.houseImg}`} className={styles.img} />
+                //   </div>
+                //   <div className={styles.content}>
+                //     <h3 className={styles.title}>{item.title}</h3>
+                //     <div className={styles.desc}>{ item.desc }</div>
+                //     <div className={styles.tags}>
+                //       {
+                //         item.tags && item.tags.map((cItem,index) => (
+                //           <span key={cItem} className={[styles.tag, styles[`tag${index + 1}`]].join(" ")}>{cItem}</span>
+                //         ))
+                //       }
+                //     </div>
+                //     <div className={styles.priceWrap}><span className={styles.price}>{item.price} </span>元/月</div>
+                //   </div>
+                // </div>
               ))
             }
             

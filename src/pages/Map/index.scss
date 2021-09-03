@@ -1,6 +1,10 @@
 .map, #container {
   height: 100%;
   padding-top: 45px;
+
+  .navNoMargin {
+    margin: 0;
+  }
 }
 .map {
   margin-top: -45px;
