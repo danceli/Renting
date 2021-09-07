@@ -6,13 +6,13 @@ const NoHouse = ({ children }) => {
   return (
     <div className="no-house">
       <img src="http://localhost:8080/img/not-found.png" alt="" />
-      <p>{ children }</p>
+      <p>{children}</p>
     </div>
   )
 }
 
 NoHouse.propTypes = {
-  children: PropTypes.string.isRequired
+  children: PropTypes.node.isRequired
 }
 
 export default NoHouse;

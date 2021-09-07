@@ -1,0 +1,17 @@
+.root {
+  height: 100%;
+}
+
+.tips {
+  background-color: #fff;
+  height: calc(100% - 44px);
+
+}
+
+.tip {
+  height: 44px;
+  line-height: 44px;
+  font-size: 17px;
+  margin: 0 15px;
+  border-bottom: 1px solid #ccc;
+}

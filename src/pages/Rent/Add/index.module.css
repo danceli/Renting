@@ -1,0 +1,44 @@
+.root {
+  padding-bottom: 44px;
+}
+
+.addNavHeader {
+  margin-top: 0;
+}
+
+.root :global(.am-list-header) {
+  color: #21b97a;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.houstTitleList {
+  margin-top: 10px;
+}
+
+.imgpicker {
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+.footer {
+  z-index: 9999;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.cancelBtn {
+  color: #21b97a;
+  background-color: #fff;
+}
+
+.okBtn {
+  background-color: #21b97a;
+  color: #fff;
+}

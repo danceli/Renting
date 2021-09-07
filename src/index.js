@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './styles/index.css';
-
+import store from './store/index';
+import { Provider } from 'react-redux';
 import './assets/font/iconfont.css';
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+      <App />
+  </Provider>,
   document.getElementById('root')
 );
 

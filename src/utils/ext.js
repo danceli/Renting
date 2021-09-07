@@ -56,3 +56,27 @@ export function formatCityLetter(letter) {
       break;
   }
 }
+
+export function debounce(fn, timer, triggle) {
+  let t = null;
+  return function() {
+    const _self = this,
+          args = arguments;
+    if(t) {
+      clearTimeout(t)
+    }
+    if(triggle) {
+      const exec = !t;
+      t = setTimeout(() => {
+        t = null;
+      }, timer);
+      if(exec) {
+        fn.apply(_self, args);
+      }
+    } else {
+      t = setTimeout(() => {
+        fn.apply(_self, args);
+      }, timer)
+    }
+  }
+}
